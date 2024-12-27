@@ -113,8 +113,8 @@ class Players:
 	club_role = 0
 
 	# Message stuff...
-	update_url = 'https://t.me/RoyaleStudio/339'
-	patch_url = 'https://t.me/RoyaleStudio/339'
+	update_url = 'https://t.me/leximstuff'
+	patch_url = 'https://t.me/leximstuff'
 	patch_sha = Fingerprint.loadFinger("GameAssets/fingerprint.json")
 	maintenance_time = 0
 
