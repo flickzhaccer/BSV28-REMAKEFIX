@@ -1,11 +1,11 @@
-Brawl Stars V28 (maksimka hitler)
+VBC Remake V28 (@lexim0ff)
 
 ANDROID APK - YOUR USING
 
-Server ZIP: https://codeload.github.com/LekmaDev/BSV28/zip/refs/heads/main
+Server ZIP Original: by LekmaDev
 
 ## Requirements: ##
-1. a brain...
+1. Python 3.8 or more
 
 ## Work: ##
 1. Friend (add, status, remove)
@@ -13,12 +13,18 @@ Server ZIP: https://codeload.github.com/LekmaDev/BSV28/zip/refs/heads/main
 3. Shop
 4. Online Rooms
 5. bot interacting with the server
+and more 
 
-and more
+## Stuff Added ##
+1. Trophy Road
+2. AutoShop (schduled at 23:15)
+3. Removed Colt From Start
+4. Added anti-ddos
 
-## How to play BS V28: ##
+## How to play VBC V28 Remake: ##
 1. download server
 2. download pydroid (if you want to run from the phone)
 3. open in pydroid core.py located in the server folder
 4. click on the run button
 5. now open the game and play
+
