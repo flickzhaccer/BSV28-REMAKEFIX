@@ -21,9 +21,9 @@ class OwnHomeDataMessage(Writer):
         self.writeVint(self.timestamp)  # Timestamp
 
         self.writeVint(self.player.trophies)  # Player Trophies
-        self.writeVint(self.player.highest_trophies)  # Player Max Reached Trophies
-        self.writeVint(self.player.highest_trophies)
-        self.writeVint(250)  #self.player.Troproad
+        self.writeVint(self.player.trophies)  # Player Max Reached Trophies
+        self.writeVint(self.player.trophies)
+        self.writeVint(self.player.Troproad)  #Trophy Road
         self.writeVint(220+self.player.player_experience)  # Player exp
         #DataBase.replaceValue(self, "Troproad", 1)
         self.writeScId(28, self.player.profile_icon)  # Player Icon ID
