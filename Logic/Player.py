@@ -96,7 +96,7 @@ class Players:
 	gadget = 255
 	starpower = 76
 
-	name = "VBC26"
+	name = "VBC28REMAKE"
 	player_experience = 0
 	do_not_distrub = 0
 
