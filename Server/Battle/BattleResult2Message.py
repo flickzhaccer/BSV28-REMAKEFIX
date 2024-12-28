@@ -19,51 +19,52 @@ class BattleResult2Message(Writer):
         tokenGained = 0
         tropGainded = 0
         if 0 <= brawler_trophies <= 49:
-            win_val = 12
+            win_val = 8
             lose_val = 0
         else:
             if 50 <= brawler_trophies <= 99:
-                win_val = 18
+                win_val = 8
                 lose_val = -1
             if 100 <= brawler_trophies <= 199:
-                win_val = 16
+                win_val = 8
                 lose_val = -2
             if 200 <= brawler_trophies <= 299:
-                win_val = 14
+                win_val = 8
                 lose_val = -3
             if 300 <= brawler_trophies <= 399:
-                win_val = 12
+                win_val = 8
                 lose_val = -4
             if 400 <= brawler_trophies <= 499:
-                win_val = 12
+                win_val = 8
                 lose_val = -5
             if 500 <= brawler_trophies <= 599:
-                win_val = 12
+                win_val = 8
                 lose_val = -6
             if 600 <= brawler_trophies <= 699:
-                win_val = 12
+                win_val = 7
                 lose_val = -7
             if 700 <= brawler_trophies <= 799:
-                win_val = 12
+                win_val = 6
                 lose_val = -8
             if 800 <= brawler_trophies <= 899:
-                win_val = 11
+                win_val = 5
                 lose_val = -9
             if 900 <= brawler_trophies <= 999:
-                win_val = 10
+                win_val = 4
                 lose_val = -10
             if 1000 <= brawler_trophies <= 1099:
-                win_val = 9
+                win_val = 3
                 lose_val = -11
             if 1100 <= brawler_trophies <= 1199:
-                win_val = 8
+                win_val = 3
                 lose_val = -12
             if brawler_trophies >= 1200:
-                win_val = 8
+                win_val = 3
                 lose_val = -12
         if self.player.battle_result == 1:
             tropGainded = lose_val
             tokenGained = 0
+            experience = random.randint(0,30)
         elif self.player.battle_result == 0:
             tropGainded = win_val
             tokenGained = random.randint(10,50)
@@ -193,7 +194,7 @@ class BattleResult2Message(Writer):
         # Experience Array
         self.writeVint(2) # Count
         self.writeVint(0) # Normal Experience ID
-        self.writeVint(0) # Normal Experience Gained
+        self.writeVint(experience) # Normal Experience Gained
         self.writeVint(8) # Star Player Experience ID
         self.writeVint(0) # Star Player Experience Gained
 
@@ -206,7 +207,7 @@ class BattleResult2Message(Writer):
         self.writeVint(self.player.brawlers_trophies[str(self.player.brawler_id)]) # Brawler Trophies
         self.writeVint(self.player.brawlers_trophies[str(self.player.brawler_id)]) # Brawler Trophies for Rank
         self.writeVint(5) # Experience Bar Milestone ID
-        self.writeVint(10) # Player Experience
+        self.writeVint(self.player.player_experience) # Player Experience
         self.writeVint(0) # Player Experience for Level
         
         self.writeScId(28, 0)  # Player Profile Icon (Unused since 2017)
@@ -219,5 +220,5 @@ class BattleResult2Message(Writer):
             DataBase.replaceValue(self, 'box', self.player.box)
             self.player.trioWINS = self.player.trioWINS + 1
             DataBase.replaceValue(self, 'trioWINS', self.player.trioWINS)
-            self.player.player_experience += 10
+            self.player.player_experience += experience
             DataBase.replaceValue(self, 'playerExp', self.player.player_experience)
