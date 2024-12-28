@@ -20,6 +20,8 @@ and more
 2. AutoShop (schduled at 23:15)
 3. Removed Colt From Start
 4. Added anti-ddos
+5. Auto Modifiers (After Restart on Server)
+6. Fixed BattleResult
 
 ## How to play VBC V28 Remake: ##
 1. download server
