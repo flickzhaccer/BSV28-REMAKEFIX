@@ -1,4 +1,4 @@
-VBC Remake V28 (@lexim0ff)
+VBC Remake V28 (@lexim0ff) (@flickzhacc)
 
 ANDROID APK - YOUR USING
 
