@@ -1,6 +1,6 @@
 VBC Remake V28 (@lexim0ff) (@flickzhacc)
 
-ANDROID APK - YOUR USING
+ANDROID APK - THE ONE YOU USE KEK
 
 Server ZIP Original: by LekmaDev
 
