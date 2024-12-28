@@ -16,12 +16,12 @@ class BattleResultMessage(Writer):
         tropGainded = 0
         tokenGained = 0
 		
-        rank_1_val = 12
-        rank_2_val = 11
-        rank_3_val = 10
-        rank_4_val = 9
-        rank_5_val = 8
-        rank_6_val = 7
+        rank_1_val = 9
+        rank_2_val = 8
+        rank_3_val = 7
+        rank_4_val = 6
+        rank_5_val = 4
+        rank_6_val = 3
         rank_7_val = -2
         rank_8_val = -4
         rank_9_val = -8
@@ -29,33 +29,43 @@ class BattleResultMessage(Writer):
         if self.player.rank == 1:
             tropGainded = rank_1_val
             tokenGained = random.randint(10,50)
+            experience = random.randint(0,20)
         elif self.player.rank == 2:
             tropGainded = rank_2_val
             tokenGained = random.randint(10,45)
+            experience = random.randint(0,20)
         elif self.player.rank == 3:
             tropGainded = rank_3_val
             tokenGained = random.randint(10,40)
+	    experience = random.randint(0,20)
         elif self.player.rank == 4:
             tropGainded = rank_4_val
             tokenGained = random.randint(10,35)
+            experience = random.randint(0,20)
         elif self.player.rank == 5:
             tropGainded = rank_5_val
             tokenGained = random.randint(10,30)
+            experience = random.randint(0,20)
         elif self.player.rank == 6:
             tropGainded = rank_6_val
             tokenGained = random.randint(10,25)
+            experience = random.randint(0,20)
         elif self.player.rank == 7:
             tropGainded = rank_7_val
             tokenGained = random.randint(10,20)
+            experience = random.randint(0,20)
         elif self.player.rank == 8:
             tropGainded = rank_8_val
             tokenGained = random.randint(10,15)
+            experience = random.randint(0,20)
         elif self.player.rank == 9:
             tropGainded = rank_9_val
             tokenGained = random.randint(1,10)
+            experience = random.randint(0,20)
         elif self.player.rank == 10:
             tropGainded = rank_10_val
             tokenGained = random.randint(1,10)
+            experience = random.randint(0,20)
         self.writeVint(2) # Battle End Game Mode 
         self.writeVint(self.player.rank) # Result 
         self.writeVint(tokenGained) # Tokens Gained
@@ -183,7 +193,7 @@ class BattleResultMessage(Writer):
         # Experience Array
         self.writeVint(2) # Count
         self.writeVint(0) # Normal Experience ID
-        self.writeVint(0) # Normal Experience Gained
+        self.writeVint(experience) # Normal Experience Gained
         self.writeVint(8) # Star Player Experience ID
         self.writeVint(0) # Star Player Experience Gained
 
@@ -196,8 +206,8 @@ class BattleResultMessage(Writer):
         self.writeVint(self.player.brawlers_trophies[str(self.player.brawler_id)]) # Brawler Trophies
         self.writeVint(self.player.brawlers_trophies[str(self.player.brawler_id)]) # Brawler Trophies for Rank
         self.writeVint(5) # Experience Bar Milestone ID
-        self.writeVint(10) # Player Experience
-        self.writeVint(0) # Player Experience for Level
+        self.writeVint(self.player.player_experience) # Player Experience
+        self.writeVint(self.player.player_experience) # Player Experience for Level
         
         self.writeScId(28, 0)  # Player Profile Icon (Unused since 2017)
         self.writeBoolean(False)  # Play Again
@@ -209,5 +219,5 @@ class BattleResultMessage(Writer):
             DataBase.replaceValue(self, 'box', self.player.box)
             self.player.sdWINS = self.player.sdWINS + 1
             DataBase.replaceValue(self, 'sdWINS', self.player.sdWINS)
-            self.player.player_experience += 10
+            self.player.player_experience += experience
             DataBase.replaceValue(self, 'playerExp', self.player.player_experience)
